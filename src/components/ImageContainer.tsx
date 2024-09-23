@@ -1,8 +1,8 @@
 
-function ImageContainer () {
+function ImageContainer ({ imageSrc }: { imageSrc: string}) {
   return (
     <div className="flex items-center">
-      <img src="/assets/img-1.png" alt="Placeholder" className="w-full h-full mr-2" />
+      <img src={imageSrc} alt="Placeholder" className="w-full h-full mr-2" />
     </div>
   );
 };
