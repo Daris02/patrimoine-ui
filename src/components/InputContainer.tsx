@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function InputContainer({
   onInputChange,
 }: {
-  onInputChange: (newImageSrc: string) => void;
+  onInputChange: (newImageSrc: string, newLogs: string[]) => void;
 }) {
   const [debutDate, setDebutDate] = useState("");
   const [finDate, setFinDate] = useState("");
@@ -19,24 +19,31 @@ function InputContainer({
 
   useEffect(() => {
     const images = [
-      '/assets/img-1.png',
-      '/assets/img-2.png',
-      '/assets/img-3.png',
-      '/assets/img-4.png',
-      '/assets/img-5.png',
-      '/assets/img-6.png',
-      '/assets/img-7.png',
+      "/assets/img-1.png",
+      "/assets/img-2.png",
+      "/assets/img-3.png",
+      "/assets/img-4.png",
+      "/assets/img-5.png",
+      "/assets/img-6.png",
+      "/assets/img-7.png",
     ];
 
     let newImageSrc;
+    const newLogs = [];
 
     if (selectedOption || debutDate || finDate) {
       newImageSrc = images[Math.floor(Math.random() * images.length)];
+      newLogs.push(`Option sélectionnée: ${selectedOption}`);
     } else {
-      newImageSrc = '/assets/img-1.png';
+      newImageSrc = "/assets/img-1.png";
     }
 
-    onInputChange(newImageSrc);
+    if (debutDate && finDate) {
+      newLogs.push(`Date de début: ${debutDate}`);
+      newLogs.push(`Date de fin: ${finDate}`);
+    }
+
+    onInputChange(newImageSrc, newLogs);
   }, [debutDate, finDate, selectedOption]);
 
   return (

@@ -5,16 +5,18 @@ import LogContainer from './LogContainer';
 
 function Dashboard () {
   const [imageSrc, setImageSrc] = useState('/assets/img-1.png');
+  const [logs, setLogs] = useState([]);
 
-  const handleInputChange = (newImageSrc: string) => {
+  const handleInputChange = (newImageSrc: string, newLogs: string[]) => {
     setImageSrc(newImageSrc);
+    setLogs([...logs, ...newLogs]);
   };
 
   return (
     <div className="w-full flex">
       <div className="flex flex-col w-full ml-2">
         <InputContainer onInputChange={handleInputChange} />
-        <LogContainer />
+        <LogContainer logs={logs}/>
       </div>
       <div className="flex flex-col w-full ml-2">
         <ImageContainer imageSrc={imageSrc}/>
