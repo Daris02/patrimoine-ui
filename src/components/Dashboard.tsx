@@ -5,7 +5,7 @@ import LogContainer from './LogContainer';
 
 function Dashboard () {
   const [imageSrc, setImageSrc] = useState('/assets/img-1.png');
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs] = useState<string[]>([]);
 
   const handleInputChange = (newImageSrc: string, newLogs: string[]) => {
     setImageSrc(newImageSrc);
