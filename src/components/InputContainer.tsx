@@ -23,16 +23,16 @@ function InputContainer () {
       </div>
       <div className="mb-2">
         <label className="mr-2">
-          <input type="radio" name="radio" value="1" /> Agregat 
+          <input type="checkbox" name="checkbox" value="1" /> Agregat 
         </label>
         <label className="mr-2">
-          <input type="radio" name="radio" value="2" /> Tresorerie 
+          <input type="checkbox" name="checkbox" value="2" /> Tresorerie 
         </label>
         <label className="mr-2">
-          <input type="radio" name="radio" value="3" /> Immobilisations 
+          <input type="checkbox" name="checkbox" value="3" /> Immobilisations 
         </label>
         <label className="mr-2">
-          <input type="radio" name="radio" value="4" /> Obligations 
+          <input type="checkbox" name="checkbox" value="4" /> Obligations 
         </label>
       </div>
       <div className='mb-2 space-x-0'>
