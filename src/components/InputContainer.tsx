@@ -30,7 +30,7 @@ function InputContainer({
 
     let newImageSrc;
 
-    if (selectedOption) {
+    if (selectedOption || debutDate || finDate) {
       newImageSrc = images[Math.floor(Math.random() * images.length)];
     } else {
       newImageSrc = '/assets/img-1.png';
