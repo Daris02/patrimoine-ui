@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function InputContainer () {
-  const [debutDate, SetDebutDate] = useState();
-  const [finDate, SetFinDate] = useState();
+  const [debutDate, setDebutDate] = useState('');
+  const [finDate, setFinDate] = useState('');
+  const defaultDate = new Date();
+
+  useEffect(() => {
+    setDebutDate(defaultDate.toISOString().substr(0, 10));
+    const defaultFindDate = new Date();
+    defaultFindDate.setDate(defaultDate.getDate() + 1);
+    setFinDate(defaultFindDate.toISOString().substr(0, 10));
+  }, []);
 
   return (
     <div className="mb-5 p-2 border border-gray-300 rounded">
@@ -28,8 +36,8 @@ function InputContainer () {
         </label>
       </div>
       <div className='mb-2 space-x-0'>
-        De: <input type="date" className="w-50 mr-2 p-2 border border-gray-300 rounded" value={debutDate} />
-        A: <input type="date" className="w-50 mr-2 p-2 border border-gray-300 rounded" value={finDate}/>
+        De: <input type="date" className="w-50 mr-2 p-2 border border-gray-300 rounded" defaultValue={debutDate} />
+        A: <input type="date" className="w-50 mr-2 p-2 border border-gray-300 rounded" defaultValue={finDate} />
       </div>
     </div>
   );
