@@ -18,12 +18,22 @@ function InputContainer({
   }, []);
 
   useEffect(() => {
-    let newImageSrc = "/assets/img-1.png";
+    const images = [
+      '/assets/img-1.png',
+      '/assets/img-2.png',
+      '/assets/img-3.png',
+      '/assets/img-4.png',
+      '/assets/img-5.png',
+      '/assets/img-6.png',
+      '/assets/img-7.png',
+    ];
 
-    if (selectedOption === "1") {
-      newImageSrc = "/assets/img-2.png";
-    } else if (selectedOption === "2") {
-      newImageSrc = "/assets/img-3.png";
+    let newImageSrc;
+
+    if (selectedOption) {
+      newImageSrc = images[Math.floor(Math.random() * images.length)];
+    } else {
+      newImageSrc = '/assets/img-1.png';
     }
 
     onInputChange(newImageSrc);
