@@ -31,16 +31,19 @@ function InputContainer({
     let newImageSrc;
     const newLogs = [];
 
-    if (selectedOption || debutDate || finDate) {
+    if (!selectedOption) {
+      newImageSrc = "/assets/default.png";
+      newLogs.push(`Possesseur sélectionnée: ${selectedOption || 'Aucun'}`);
+    } else if (selectedOption || debutDate || finDate) {
       newImageSrc = images[Math.floor(Math.random() * images.length)];
-      newLogs.push(`Option sélectionnée: ${selectedOption}`);
+      newLogs.push(`Possesseur sélectionnée: ${selectedOption || 'Aucun'}`);
     } else {
-      newImageSrc = "/assets/img-1.png";
+      newImageSrc = "/assets/default.png";
     }
 
     if (debutDate && finDate) {
-      newLogs.push(`Date de début: ${debutDate}`);
-      newLogs.push(`Date de fin: ${finDate}`);
+      newLogs.push(`Date de début du projection : ${debutDate}`);
+      newLogs.push(`Date de fin du projection : ${finDate}`);
     }
 
     onInputChange(newImageSrc, newLogs);
@@ -55,9 +58,10 @@ function InputContainer({
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value)}
         >
-          <option value="">Cresus</option>
-          <option value="1">Ilo</option>
-          <option value="2">Zety</option>
+          <option value="">choisir un possesseur</option>
+          <option value="Cresus">Cresus</option>
+          <option value="Ilo">Ilo</option>
+          <option value="Zety">Zety</option>
         </select>
       </div>
       <div className="mb-2">
